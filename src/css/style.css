@@ -207,9 +207,10 @@ body {
 
 .skills-logos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   gap: 5px;
   padding: 5px;
+  overflow: hidden;
 }
 
 .skill {
@@ -390,6 +391,12 @@ body {
   .header-container .btn {
     border-radius: 5px;
     width: 80%;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1152px) {
+  .skills-logos {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); /* tweak the min size if needed */
   }
 }
 
