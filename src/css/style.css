@@ -205,6 +205,34 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Standard shadow */
 }
 
+.skills-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 5px;
+  padding: 5px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column; /* Stacks the image and text vertically */
+  align-items: center; /* Centers the content horizontally */
+}
+
+.skill img {
+  width: 100%; /* Ensures images stretch to fill the column */
+  height: auto; /* Keeps the aspect ratio of the images */
+  max-width: 80px; /* Maximum width for each image */
+  max-height: 80px; /* Maximum height for each image */
+  object-fit: contain; /* Ensures the image is scaled properly within the bounds */
+}
+
+.skill p {
+  margin-top: 5px; /* Adds space between the image and the text */
+  text-align: center; /* Ensures text is centered under the image */
+  color: var(--text-color); /* Uses color from your CSS variables */
+  font-size: 0.75rem; /* Adjust the font size as necessary */
+}
+
 /* Experience Cards Styles */
 .experience-card .card {
   border: 2px solid var(--secondary-color); /* Different border color for experience cards */
