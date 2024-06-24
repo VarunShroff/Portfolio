@@ -133,6 +133,21 @@ body {
   background-color: var(--bg-secondary);
 }
 
+.tools-used {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+[data-theme="dark"] .tools-used {
+  color: var(--primary-color);
+}
+
+[data-theme="light"] .tools-used {
+  color: var(--secondary-color);
+}
+
+
 /* Hero section */
 #hero {
   display: flex;
@@ -166,7 +181,8 @@ body {
 #skills {
   display: flex;
   flex-direction: column;
-  margin: 2rem auto 5rem;
+  margin: 2rem auto;
+  /* padding: 1rem; */
 }
 
 #skills .btn {
@@ -180,6 +196,17 @@ body {
 }
 
 #experience .btn {
+  align-self: center;
+  margin: 2rem 0;
+}
+
+/* Experience */
+#projects {
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+#projects .btn {
   align-self: center;
   margin: 2rem 0;
 }
@@ -265,6 +292,85 @@ body {
   position: relative;
   top: 160px;
   left: 10px;
+}
+
+/* Project Cards */
+.project-card .card {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-card .card img {
+  max-width: 60%;
+  max-height: 120px;
+  margin-bottom: 15px;
+}
+
+.project-card .card h2 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.project-card .card:hover {
+  transform: scale(1.05);
+}
+
+/* Experience Cards Container */
+#experience-container {
+  margin-top: 20px; /* Add some margin to move it down */
+  padding-top: 20px; /* Add some padding to ensure it's not covered */
+  z-index: 1; /* Ensure it is on top */
+  position: relative; /* Ensure proper stacking */
+}
+
+
+/* Experience Item */
+.experience-item {
+  display: none; /* Hide by default */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ensure grid layout */
+  gap: 20px;
+  justify-content: center;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 20px; /* Add some margin to move it down */
+}
+
+.experience-item.active {
+  display: grid; /* Change to grid to maintain layout */
+  max-height: 1000px; /* Adjust based on your content's height */
+  opacity: 1;
+  margin-top: 20px; /* Add some margin to move it down when active */
+}
+
+
+.experience-card .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: 20px; /* Add some margin to move each card down */
+}
+
+.experience-card .card img {
+  max-width: 60%;
+  max-height: 120px;
+  margin-bottom: 15px;
+}
+
+.experience-card .card:hover {
+  transform: scale(1.05);
 }
 
 /* Footer */
@@ -400,7 +506,6 @@ body {
   }
 }
 
-/* Grid Wrapper */
 .wrapper-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
