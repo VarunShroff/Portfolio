@@ -140,7 +140,7 @@ body {
 }
 
 [data-theme="dark"] .tools-used {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 [data-theme="light"] .tools-used {

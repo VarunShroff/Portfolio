@@ -22,7 +22,7 @@ function closeMenu() {
 const themeToggleButton = document.getElementById('themeToggleButton');
 const themeToggleIcon = document.getElementById('themeToggleIcon');
 
-themeToggleButton.addEventListener('click', function() {
+themeToggleButton.addEventListener('click', function () {
   const isLightTheme = document.documentElement.getAttribute('data-theme') === 'light';
   if (isLightTheme) {
     document.documentElement.setAttribute('data-theme', 'dark');
@@ -36,7 +36,7 @@ themeToggleButton.addEventListener('click', function() {
 });
 
 // Set the default theme to dark when the page loads
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const savedTheme = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeToggleIcon.src = savedTheme === 'dark' ? 'assets/sun.svg' : 'assets/moon.svg';
@@ -53,7 +53,7 @@ if (currentTheme) {
   }
 }
 
-var TxtType = function(el, toRotate, period) {
+var TxtType = function (el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
   this.loopNum = 0;
@@ -63,7 +63,7 @@ var TxtType = function(el, toRotate, period) {
   this.isDeleting = false;
 };
 
-TxtType.prototype.tick = function() {
+TxtType.prototype.tick = function () {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
 
@@ -89,12 +89,12 @@ TxtType.prototype.tick = function() {
     delta = 500;
   }
 
-  setTimeout(function() {
+  setTimeout(function () {
     that.tick();
   }, delta);
 };
 
-window.onload = function() {
+window.onload = function () {
   var elements = document.getElementsByClassName('typewrite');
   for (var i = 0; i < elements.length; i++) {
     var toRotate = elements[i].getAttribute('data-type');
@@ -140,27 +140,39 @@ function loadExperiences(projectType) {
   if (projectType === 'embedded') {
     experiences = [
       {
+        title: 'Autonomous Pipe Inspection Robot',
+        description: 'Developed a real-time C++ system on a Raspberry Pi for crack detection and 3D point cloud mapping using an OAK-D stereo camera, optimizing YOLOv11 for image processing, implementing robot system control in ROS2.',
+        imgSrc: './assets/FYDP.png',
+        tools: '#C++ #OpenCV #Raspberry Pi #Stereo Cameras #ROS2',
+      },
+      {
         title: 'Real-Time Executive (RTX) System Implementation',
         description: 'Developed a multi-programming environment with priority-based scheduling, preemption, memory management, inter-task communication, privilege mode support, and console I/O capabilities.',
         imgSrc: './assets/RTX.png',
         tools: '#C #RTOS #Intel_DE1_SoC'
       },
       {
+        title: 'Smart OBD2 Diagnostic & Optimization Tool',
+        description: 'Engineered a Bluetooth-enabled vehicle diagnostics system that collects OBD-II data via an ELM327 adapter and ESP32, performing local ML-based anomaly detection and optimization suggestions, with live visualization through an Android app.',
+        imgSrc: './assets/scanner.png',
+        tools: '#C++ #ESP32 #Bluetooth #Android #OBD2 #PyTorch ',
+      },
+      {
         title: 'Embedded Audio Player',
         description: 'Engineered an embedded audio player utilizing the FatFS file system for audio file processing in C that integrated push buttons with timer interrupt handling for playback control and LCD interfacing.',
         imgSrc: './assets/audio.png',
         tools: '#C #AudioProcessing #Altera_Nios_II_FPGA',
-      },
-      {
-        title: 'Autonomous Firefighting Robot',
-        description: 'Developed a self-navigating robot for autonomous fire detection and suppression within a maze using a microcontroller platform to integrate sensors, enabling real-time decision-making and precise motor control.',
-        imgSrc: './assets/robot.png',
-        tools: '#Robotics #Sensors #Arduino',
-        githubLink: 'https://github.com/VarunShroff/Autonomous-FireFighting-Robot'
       }
     ];
   } else if (projectType === 'web-development') {
     experiences = [
+      {
+        title: 'Motive App',
+        description: 'Developed a mobile app to connect individuals hosting local sporting events with players using an MVC architecture, data persistence, and integrated Google Maps API for real-time location tracking.',
+        imgSrc: './assets/android.png',
+        tools: '#Android #Kotlin #NoSQL',
+        githubLink: 'https://github.com/VarunShroff/Motive'
+      },
       {
         title: 'Chrome Arcade',
         description: 'Developed a browser extension for playing classic arcade games, featuring enhanced interaction detection and persistent score tracking, with optimized user controls for a seamless gaming experience.',
@@ -179,10 +191,16 @@ function loadExperiences(projectType) {
   } else if (projectType === 'ai/ml') {
     experiences = [
       {
-        title: 'Hybrid Vehicle Auto-Parking',
-        description: 'Designed an automatic parking system using sensor fusion and control algorithms, enabling the vehicle to autonomously detect and park in available spaces as part of the EcoCAR Design Team.',
-        imgSrc: './assets/uwaft.webp',
-        tools: '#Python #ROS2 #Linux'
+        title: 'Formula 1 Race Outcome Predictor',
+        description: 'Built an end-to-end machine learning pipeline for predicting Formula 1 race outcomes using CUDA-accelerated PyTorch models, cloud-hosted data pipelines, and a web dashboard for result visualization and analysis.',
+        imgSrc: './assets/racing-car.png',
+        tools: '#PyTorch #CUDA #FastAPI #GCP',
+      },
+      {
+        title: 'Augmented Reality Car Repair Assistant',
+        description: 'Developed a Python-based vision system that identifies automotive engine components using image classification and provides repair instructions through speech output, designed to aid beginners in understanding engine bays.',
+        imgSrc: './assets/ar_car_repair_glasses.png',
+        tools: '#Python #OpenCV #TTS',
       },
       {
         title: 'Mood Music Generator',
@@ -193,6 +211,12 @@ function loadExperiences(projectType) {
     ];
   } else if (projectType === 'miscellaneous') {
     experiences = [
+      {
+        title: 'Hybrid Vehicle Auto-Parking',
+        description: 'Designed an automatic parking system using sensor fusion and control algorithms, enabling the vehicle to autonomously detect and park in available spaces as part of the EcoCAR Design Team.',
+        imgSrc: './assets/uwaft.webp',
+        tools: '#Python #ROS2 #Linux'
+      },
       {
         title: 'Language Compiler',
         description: 'Developed a recognizer and parser that utilized recursive descent parsing and regular expressions ensuring compliance with semantic and syntactic rules through scanning, parsing, context-sensitive analysis, and code generation.',
